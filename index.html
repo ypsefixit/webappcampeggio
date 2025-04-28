@@ -1,67 +1,79 @@
-
 <!DOCTYPE html>
 <html lang="it">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Campeggio Santa Margherita</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/dayjs@1.10.7/dayjs.min.js"></script>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
 </head>
 <body>
-    <div class="container">
-        <img src="logo.png" alt="Logo" class="logo">
+    <header>
+        <img src="logo.png" alt="Logo Campeggio" class="logo">
         <h1>CAMPEGGIO</h1>
         <h2>SANTA MARGHERITA</h2>
-        
-        <!-- Form aggiornamento risorse libere -->
-        <form id="form-aggiorna-risorse" enctype="multipart/form-data">
-            <label for="carica-risorse">Carica risorse libere (CSV):</label>
-            <input type="file" id="carica-risorse" name="carica-risorse" accept=".csv">
-            <button type="submit">Aggiorna risorse libere</button>
-        </form>
+    </header>
+    <main>
+        <!-- Form per aggiornare le risorse -->
+        <section>
+            <h3>Aggiorna Risorse Libere</h3>
+            <form id="aggiorna-disponibile-form">
+                <label for="file-upload">Carica Risorse Libere:</label>
+                <input type="file" id="file-upload" accept=".csv">
+                <button type="button" id="aggiorna-disponibile-btn">Aggiorna</button>
+            </form>
+        </section>
 
-        <!-- Form aggiornamento singola risorsa -->
-        <form id="form-aggiorna-singola-risorsa">
-            <label for="risorsa">Risorsa (4 caratteri):</label>
-            <input type="text" id="risorsa" name="risorsa" required maxlength="4">
-            <label for="libera-fino-a">Libera fino a:</label>
-            <input type="date" id="libera-fino-a" name="libera-fino-a">
-            <button type="submit">Aggiorna singola risorsa</button>
-        </form>
+        <!-- Form per aggiornare una singola risorsa -->
+        <section>
+            <h3>Aggiorna Singola Risorsa</h3>
+            <form id="aggiorna-risorsa-form">
+                <label for="risorsa">Risorsa (4 caratteri):</label>
+                <input type="text" id="risorsa" maxlength="4">
+                <label for="libera-fino-a">Libera fino a:</label>
+                <input type="date" id="libera-fino-a" min="">
+                <button type="button" id="aggiorna-risorsa-btn">Aggiorna</button>
+            </form>
+        </section>
 
-        <!-- Form ricerca disponibilità -->
-        <form id="form-ricerca">
-            <label for="partenza-il">Partenza il:</label>
-            <input type="date" id="partenza-il" name="partenza-il">
-            <label for="lunghezza">Lunghezza:</label>
-            <select id="lunghezza" name="lunghezza">
-                <option value="5">5</option>
-                <option value="5.5">5.5</option>
-                <option value="6">6</option>
-                <option value="6.5">6.5</option>
-                <option value="7">7</option>
-                <option value="7.5">7.5</option>
-                <option value="8">8</option>
-                <option value="8.5">8.5</option>
-                <option value="9">9</option>
-            </select>
-            <button type="submit">Ricerca</button>
-        </form>
+        <!-- Form per la ricerca -->
+        <section>
+            <h3>Ricerca Disponibilità</h3>
+            <form id="ricerca-form">
+                <label for="partenza-il">Partenza il:</label>
+                <input type="date" id="partenza-il" min="">
+                <label for="lunghezza">Lunghezza:</label>
+                <select id="lunghezza">
+                    <option value="5">5</option>
+                    <option value="5.5">5.5</option>
+                    <option value="6">6</option>
+                    <option value="6.5">6.5</option>
+                    <option value="7">7</option>
+                    <option value="7.5">7.5</option>
+                    <option value="8">8</option>
+                    <option value="8.5">8.5</option>
+                    <option value="9">9</option>
+                </select>
+                <button type="button" id="ricerca-btn">Ricerca</button>
+            </form>
+        </section>
 
-        <!-- Tabella risultati ricerca -->
-        <table id="risultati-ricerca">
-            <thead>
-                <tr>
-                    <th>Risorsa</th>
-                    <th>Dimensione</th>
-                    <th>Disponibile</th>
-                </tr>
-            </thead>
-            <tbody></tbody>
-        </table>
-    </div>
-    <script src="script.js"></script>
+        <!-- Tabella risultati -->
+        <section>
+            <h3>Risultati della Ricerca</h3>
+            <table id="risultati-tabella">
+                <thead>
+                    <tr>
+                        <th>Risorsa</th>
+                        <th>Dimensione</th>
+                        <th>Disponibile</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Risultati dinamici -->
+                </tbody>
+            </table>
+        </section>
+    </main>
 </body>
 </html>
