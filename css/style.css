@@ -1,0 +1,38 @@
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f8f9fa;
+}
+
+h1 {
+  font-weight: bold;
+  margin-top: 10px;
+  color: #0d6efd;
+}
+
+.card {
+  margin-top: 30px;
+  box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+}
+
+.table-striped > tbody > tr:nth-of-type(odd) {
+  --bs-table-accent-bg: rgba(0, 0, 0, 0.02);
+}
+
+.btn {
+  font-size: 1.1rem;
+  transition: all 0.3s;
+}
+
+.btn:hover {
+  transform: scale(1.05);
+}
+
+#resultTable {
+  animation: fadeIn 0.5s ease-in;
+}
+
+/* Animazione */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
