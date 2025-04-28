@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campeggio Santa Margherita</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body onload="databaserisorse()">
+
+    <img src="logo.png" alt="Logo Campeggio" class="logo">
+    <h1>CAMPEGGIO</h1>
+    <h2>SANTA MARGHERITA</h2>
+
+    <section class="form-section">
+        <h3>Aggiorna risorse libere</h3>
+        <input type="file" id="fileInput" accept=".csv">
+        <button onclick="aggiornadisponibile()">Aggiorna Risorse Libere</button>
+    </section>
+
+    <section class="form-section">
+        <h3>Aggiorna singola risorsa</h3>
+        <input type="text" id="risorsaSingola" placeholder="Risorsa (4 caratteri)" maxlength="4">
+        <input type="date" id="liberaFinoA">
+        <button onclick="aggiornarisorsa()">Aggiorna Singola Risorsa</button>
+    </section>
+
+    <section class="form-section">
+        <h3>Ricerca disponibilità</h3>
+        <input type="date" id="partenzaIl">
+        <select id="lunghezza">
+            <option value="5">5</option>
+            <option value="5.5">5.5</option>
+            <option value="6">6</option>
+            <option value="6.5">6.5</option>
+            <option value="7">7</option>
+            <option value="7.5">7.5</option>
+            <option value="8">8</option>
+            <option value="8.5">8.5</option>
+            <option value="9">9</option>
+        </select>
+        <button onclick="ricercadisponibile()">Ricerca</button>
+    </section>
+
+    <section id="tabellaRisultati">
+        <h3>Risultati Ricerca</h3>
+        <table id="resultsTable">
+            <thead>
+                <tr>
+                    <th>Risorsa</th>
+                    <th>Dimensione</th>
+                    <th>Disponibile</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
