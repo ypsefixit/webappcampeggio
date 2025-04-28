@@ -1,64 +1,91 @@
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f5f7fa;
-    color: #333;
-    margin: 0;
-    padding: 0;
-    text-align: center;
+  font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+  background: linear-gradient(to bottom right, #e0f7fa, #ffffff);
+  color: #333;
+  padding: 20px;
 }
-
-.logo {
-    width: 150px;
-    margin-top: 20px;
-}
-
+img { display: block; margin: 0 auto 20px; max-width: 150px; }
 h1, h2 {
-    margin: 5px 0;
+  text-align: center;
+  margin-bottom: 10px;
 }
-
-.form-section {
-    margin: 20px auto;
-    padding: 15px;
-    width: 90%;
-    max-width: 500px;
-    background: white;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    border-radius: 10px;
+h1 { font-size: 2rem; color: #2a2a2a; }
+h2 { font-size: 1.5rem; color: #555; margin-bottom: 30px; }
+.accordion-button {
+  background-color: #00796b;
+  color: white;
+  cursor: pointer;
+  padding: 14px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 1.2rem;
+  transition: background-color 0.3s;
+  border-radius: 8px;
+  margin-bottom: 5px;
 }
-
-input, select, button {
-    display: block;
-    width: 90%;
-    margin: 10px auto;
-    padding: 10px;
-    font-size: 16px;
+.accordion-button:hover {
+  background-color: #004d40;
 }
-
+.accordion-content {
+  padding: 0 18px;
+  background-color: white;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+form {
+  background: #fff;
+  padding: 20px;
+  margin-top: 10px;
+}
+label {
+  display: block;
+  margin-top: 15px;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #555;
+}
+input[type="text"], input[type="file"], input[type="date"], input[type="number"] {
+  width: 100%;
+  padding: 14px;
+  margin-bottom: 20px;
+  border: 1px solid #bbb;
+  border-radius: 8px;
+  font-size: 1rem;
+}
 button {
-    background-color: #28a745;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s, transform 0.2s;
+  background: #00796b;
+  color: #fff;
+  padding: 14px;
+  width: 100%;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
 }
-
 button:hover {
-    background-color: #218838;
-    transform: scale(1.05);
+  background: #004d40;
+  transform: scale(1.03);
 }
-
 table {
-    width: 90%;
-    margin: 20px auto;
-    border-collapse: collapse;
+  width: 100%;
+  margin-top: 30px;
+  border-collapse: collapse;
 }
-
 th, td {
-    padding: 10px;
-    border: 1px solid #ccc;
+  padding: 16px;
+  text-align: center;
+  border-bottom: 1px solid #ccc;
 }
-
-thead {
-    background-color: #e9ecef;
+th {
+  background-color: #b2dfdb;
+  color: #004d40;
 }

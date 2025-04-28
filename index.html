@@ -1,61 +1,69 @@
+
 <!DOCTYPE html>
 <html lang="it">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Campeggio Santa Margherita</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Campeggio Santa Margherita</title>
+  <link rel="stylesheet" href="style.css">
 </head>
-<body onload="databaserisorse()">
+<body>
 
-    <img src="logo.png" alt="Logo Campeggio" class="logo">
-    <h1>CAMPEGGIO</h1>
-    <h2>SANTA MARGHERITA</h2>
+  <img src="logo.png" alt="Logo Campeggio">
 
-    <section class="form-section">
-        <h3>Aggiorna risorse libere</h3>
-        <input type="file" id="fileInput" accept=".csv">
-        <button onclick="aggiornadisponibile()">Aggiorna Risorse Libere</button>
-    </section>
+  <h1>CAMPEGGIO</h1>
+  <h2>SANTA MARGHERITA</h2>
 
-    <section class="form-section">
-        <h3>Aggiorna singola risorsa</h3>
-        <input type="text" id="risorsaSingola" placeholder="Risorsa (4 caratteri)" maxlength="4">
-        <input type="date" id="liberaFinoA">
-        <button onclick="aggiornarisorsa()">Aggiorna Singola Risorsa</button>
-    </section>
+  <div class="accordion">
+    <button class="accordion-button">Aggiorna risorse libere</button>
+    <div class="accordion-content">
+      <form id="form-aggiorna-risorse">
+        <label for="file-risorse">Carica file risorse (.xlsx)</label>
+        <input type="file" id="file-risorse" accept=".xlsx">
+        <button type="button" onclick="aggiornadisponibile()">Aggiorna risorse libere</button>
+      </form>
+    </div>
 
-    <section class="form-section">
-        <h3>Ricerca disponibilità</h3>
-        <input type="date" id="partenzaIl">
-        <select id="lunghezza">
-            <option value="5">5</option>
-            <option value="5.5">5.5</option>
-            <option value="6">6</option>
-            <option value="6.5">6.5</option>
-            <option value="7">7</option>
-            <option value="7.5">7.5</option>
-            <option value="8">8</option>
-            <option value="8.5">8.5</option>
-            <option value="9">9</option>
-        </select>
-        <button onclick="ricercadisponibile()">Ricerca</button>
-    </section>
+    <button class="accordion-button">Aggiorna singola risorsa</button>
+    <div class="accordion-content">
+      <form id="form-aggiorna-singola">
+        <label for="input-risorsa">Codice risorsa (4 caratteri)</label>
+        <input type="text" id="input-risorsa" maxlength="4">
 
-    <section id="tabellaRisultati">
-        <h3>Risultati Ricerca</h3>
-        <table id="resultsTable">
-            <thead>
-                <tr>
-                    <th>Risorsa</th>
-                    <th>Dimensione</th>
-                    <th>Disponibile</th>
-                </tr>
-            </thead>
-            <tbody></tbody>
-        </table>
-    </section>
+        <label for="input-disponibile">Data disponibilità</label>
+        <input type="date" id="input-disponibile">
 
-    <script src="script.js"></script>
+        <button type="button" onclick="aggiornarisorsa()">Aggiorna singola risorsa</button>
+      </form>
+    </div>
+
+    <button class="accordion-button">Ricerca disponibilità</button>
+    <div class="accordion-content">
+      <form id="form-ricerca">
+        <label for="input-partenza">Data di partenza</label>
+        <input type="date" id="input-partenza">
+
+        <label for="input-lunghezza">Durata soggiorno (giorni)</label>
+        <input type="number" id="input-lunghezza" min="1">
+
+        <button type="button" onclick="ricercadisponibile()">Ricerca</button>
+      </form>
+    </div>
+  </div>
+
+  <table id="tabella-risultati">
+    <thead>
+      <tr>
+        <th>Risorsa</th>
+        <th>Dimensione</th>
+        <th>Disponibile fino</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Risultati -->
+    </tbody>
+  </table>
+
+  <script src="script.js"></script>
 </body>
 </html>
