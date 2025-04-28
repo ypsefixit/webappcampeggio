@@ -2,68 +2,66 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Campeggio Santa Margherita</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campeggio Santa Margherita</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1.10.7/dayjs.min.js"></script>
 </head>
 <body>
+    <div class="container">
+        <img src="logo.png" alt="Logo" class="logo">
+        <h1>CAMPEGGIO</h1>
+        <h2>SANTA MARGHERITA</h2>
+        
+        <!-- Form aggiornamento risorse libere -->
+        <form id="form-aggiorna-risorse" enctype="multipart/form-data">
+            <label for="carica-risorse">Carica risorse libere (CSV):</label>
+            <input type="file" id="carica-risorse" name="carica-risorse" accept=".csv">
+            <button type="submit">Aggiorna risorse libere</button>
+        </form>
 
-  <img src="logo.png" alt="Logo Campeggio">
+        <!-- Form aggiornamento singola risorsa -->
+        <form id="form-aggiorna-singola-risorsa">
+            <label for="risorsa">Risorsa (4 caratteri):</label>
+            <input type="text" id="risorsa" name="risorsa" required maxlength="4">
+            <label for="libera-fino-a">Libera fino a:</label>
+            <input type="date" id="libera-fino-a" name="libera-fino-a">
+            <button type="submit">Aggiorna singola risorsa</button>
+        </form>
 
-  <h1>CAMPEGGIO</h1>
-  <h2>SANTA MARGHERITA</h2>
+        <!-- Form ricerca disponibilità -->
+        <form id="form-ricerca">
+            <label for="partenza-il">Partenza il:</label>
+            <input type="date" id="partenza-il" name="partenza-il">
+            <label for="lunghezza">Lunghezza:</label>
+            <select id="lunghezza" name="lunghezza">
+                <option value="5">5</option>
+                <option value="5.5">5.5</option>
+                <option value="6">6</option>
+                <option value="6.5">6.5</option>
+                <option value="7">7</option>
+                <option value="7.5">7.5</option>
+                <option value="8">8</option>
+                <option value="8.5">8.5</option>
+                <option value="9">9</option>
+            </select>
+            <button type="submit">Ricerca</button>
+        </form>
 
-  <div class="accordion">
-    <button class="accordion-button">Aggiorna risorse libere</button>
-    <div class="accordion-content">
-      <form id="form-aggiorna-risorse">
-        <label for="file-risorse">Carica file risorse (.xlsx)</label>
-        <input type="file" id="file-risorse" accept=".xlsx">
-        <button type="button" onclick="aggiornadisponibile()">Aggiorna risorse libere</button>
-      </form>
+        <!-- Tabella risultati ricerca -->
+        <table id="risultati-ricerca">
+            <thead>
+                <tr>
+                    <th>Risorsa</th>
+                    <th>Dimensione</th>
+                    <th>Disponibile</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
     </div>
-
-    <button class="accordion-button">Aggiorna singola risorsa</button>
-    <div class="accordion-content">
-      <form id="form-aggiorna-singola">
-        <label for="input-risorsa">Codice risorsa (4 caratteri)</label>
-        <input type="text" id="input-risorsa" maxlength="4">
-
-        <label for="input-disponibile">Data disponibilità</label>
-        <input type="date" id="input-disponibile">
-
-        <button type="button" onclick="aggiornarisorsa()">Aggiorna singola risorsa</button>
-      </form>
-    </div>
-
-    <button class="accordion-button">Ricerca disponibilità</button>
-    <div class="accordion-content">
-      <form id="form-ricerca">
-        <label for="input-partenza">Data di partenza</label>
-        <input type="date" id="input-partenza">
-
-        <label for="input-lunghezza">Durata soggiorno (giorni)</label>
-        <input type="number" id="input-lunghezza" min="1">
-
-        <button type="button" onclick="ricercadisponibile()">Ricerca</button>
-      </form>
-    </div>
-  </div>
-
-  <table id="tabella-risultati">
-    <thead>
-      <tr>
-        <th>Risorsa</th>
-        <th>Dimensione</th>
-        <th>Disponibile fino</th>
-      </tr>
-    </thead>
-    <tbody>
-      <!-- Risultati -->
-    </tbody>
-  </table>
-
-  <script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
