@@ -1,38 +1,57 @@
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #f8f9fa;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #f2f2f2;
+    margin: 0;
+    padding: 0;
 }
 
-h1 {
-  font-weight: bold;
-  margin-top: 10px;
-  color: #0d6efd;
+.logo {
+    width: 150px;
+    margin-top: 20px;
 }
 
-.card {
-  margin-top: 30px;
-  box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+h1, h2 {
+    margin: 0;
 }
 
-.table-striped > tbody > tr:nth-of-type(odd) {
-  --bs-table-accent-bg: rgba(0, 0, 0, 0.02);
+.form-section, .table-section {
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 15px;
+    width: 90%;
+    max-width: 600px;
+    box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
 }
 
-.btn {
-  font-size: 1.1rem;
-  transition: all 0.3s;
+input, select {
+    padding: 10px;
+    margin: 10px;
+    width: 80%;
 }
 
-.btn:hover {
-  transform: scale(1.05);
+button {
+    background-color: #6EC1E4;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-#resultTable {
-  animation: fadeIn 0.5s ease-in;
+button:hover {
+    background-color: #45A3C3;
+    transform: scale(1.05);
 }
 
-/* Animazione */
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 10px;
+    border: 1px solid #ddd;
 }

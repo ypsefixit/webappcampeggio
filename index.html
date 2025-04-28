@@ -1,64 +1,63 @@
-<!DOCTYPE html>
+Put your HTML text here<!DOCTYPE html>
 <html lang="it">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Campeggio Santa Margherita</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="style.css">
 </head>
-<body>
-<div class="container text-center mt-4">
-    <img src="assets/logo.png" alt="Logo" style="max-height: 100px;">
-    <h1>CAMPEGGIO SANTA MARGHERITA</h1>
+<body onload="databaserisorse()">
 
-    <div class="card p-4 mt-3">
-        <h4>Ricerca Risorse</h4>
-        <div class="row mb-3">
-            <div class="col">
-                <label for="searchDate" class="form-label">Libera fino al:</label>
-                <input type="date" class="form-control" id="searchDate">
-            </div>
-            <div class="col">
-                <label for="searchDimension" class="form-label">Lunghezza mezzo:</label>
-                <select class="form-control" id="searchDimension"></select>
-            </div>
-        </div>
-        <button class="btn btn-primary" id="btnSearch">Cerca</button>
-    </div>
+    <img src="logo.png" alt="Logo Campeggio" class="logo">
+    <h1>CAMPEGGIO</h1>
+    <h2>SANTA MARGHERITA</h2>
 
-    <div class="card p-4 mt-4">
-        <h4>Carica Disponibilità Risorse</h4>
-        <input type="file" class="form-control" id="uploadDisponibilita" accept=".xlsx">
-    </div>
+    <section class="form-section">
+        <h3>Aggiorna Risorse Libere</h3>
+        <input type="file" id="fileInputAggiorna">
+        <button onclick="aggiornadisponibile()">Aggiorna Risorse Libere</button>
+    </section>
 
-    <div class="card p-4 mt-4">
-        <h4>Aggiorna Singola Risorsa</h4>
-        <div class="row mb-3">
-            <div class="col">
-                <input type="text" class="form-control" id="updateRisorsa" placeholder="Codice risorsa">
-            </div>
-            <div class="col">
-                <input type="date" class="form-control" id="updateData">
-            </div>
-        </div>
-        <button class="btn btn-success" id="btnUpdate">Aggiorna Risorsa</button>
-    </div>
+    <section class="form-section">
+        <h3>Aggiorna Singola Risorsa</h3>
+        <input type="text" id="campoRisorsa" placeholder="Risorsa (4 caratteri)" maxlength="4">
+        <input type="date" id="campoDisponibile">
+        <button onclick="aggiornarisorsa()">Aggiorna Singola Risorsa</button>
+    </section>
 
-    <table class="table table-striped table-hover mt-5" id="resultTable">
-        <thead class="table-dark">
-            <tr>
-                <th>Risorsa</th>
-                <th>Dimensione</th>
-                <th>Disponibile</th>
-            </tr>
-        </thead>
-        <tbody></tbody>
-    </table>
-</div>
+    <section class="form-section">
+        <h3>Ricerca Risorsa Disponibile</h3>
+        <input type="date" id="campoPartenza">
+        <select id="campoLunghezza">
+            <option value="">Seleziona dimensione</option>
+            <option value="5">5.0</option>
+            <option value="5.5">5.5</option>
+            <option value="6">6.0</option>
+            <option value="6.5">6.5</option>
+            <option value="7">7.0</option>
+            <option value="7.5">7.5</option>
+            <option value="8">8.0</option>
+            <option value="8.5">8.5</option>
+            <option value="9">9.0</option>
+        </select>
+        <button onclick="ricercadisponibile()">Ricerca</button>
+    </section>
 
-<script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
-<script src="js/main.js"></script>
+    <section class="table-section">
+        <h3>Risultati Ricerca</h3>
+        <table id="tabellaRisultati">
+            <thead>
+                <tr>
+                    <th>Risorsa</th>
+                    <th>Dimensione</th>
+                    <th>Disponibile</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </section>
+
+    <script src="script.js"></script>
 </body>
 </html>
